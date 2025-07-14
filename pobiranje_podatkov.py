@@ -1,49 +1,48 @@
 import requests
 import time
 from Preberi_podatke import vzorec_bloka, izloci_podatke_vprasanja
-import json
 import csv
 
 def poberi_htmlje_st_strani(od, do):
-    # for i in range(od, do + 1):
-    #     link = f"https://math.stackexchange.com/questions?tab=votes&page={i}"
-    #     odziv = requests.get(link)
+    for i in range(od, do + 1):
+        link = f"https://math.stackexchange.com/questions?tab=votes&page={i}"
+        odziv = requests.get(link)
 
-    #     time.sleep(2)
+        time.sleep(2)
 
-    #     if odziv.status_code == 200:
-    #         with open(f"(highest-score)-stran-{i}.html", "w", encoding="utf-8") as f:
-    #             f.write(odziv.text)
-    #             print(f"(highest-score)-stran-{i}.html")
-    #     else:
-    #         print("napaka")
+        if odziv.status_code == 200:
+            with open(f"(highest-score)-stran-{i}.html", "w", encoding="utf-8") as f:
+                f.write(odziv.text)
+                print(f"(highest-score)-stran-{i}.html")
+        else:
+            print("napaka")
 
-    # for i in range(od, do + 1):
-    #     link = f"https://math.stackexchange.com/questions?tab=trending&page={i}"
-    #     odziv = requests.get(link)
+    for i in range(od, do + 1):
+        link = f"https://math.stackexchange.com/questions?tab=trending&page={i}"
+        odziv = requests.get(link)
 
-    #     time.sleep(2)
+        time.sleep(2)
 
-    #     if odziv.status_code == 200:
-    #         with open(f"(trending)-stran-{i}.html", "w", encoding="utf-8") as f:
-    #             f.write(odziv.text)
-    #             print(f"(trending)-stran-{i}.html")
-    #     else:
-    #         print("napaka")
+        if odziv.status_code == 200:
+            with open(f"(trending)-stran-{i}.html", "w", encoding="utf-8") as f:
+                f.write(odziv.text)
+                print(f"(trending)-stran-{i}.html")
+        else:
+            print("napaka")
 
 
-    # for i in range(od, do + 1):
-    #     link = f"https://math.stackexchange.com/unanswered/tagged/?page={i}&tab=votes&pagesize=50"
-    #     odziv = requests.get(link)
+    for i in range(od, do + 1):
+        link = f"https://math.stackexchange.com/unanswered/tagged/?page={i}&tab=votes&pagesize=50"
+        odziv = requests.get(link)
 
-    #     time.sleep(2)
+        time.sleep(2)
 
-    #     if odziv.status_code == 200:
-    #         with open(f"(unanswered)-stran-{i}.html", "w", encoding="utf-8") as f:
-    #             f.write(odziv.text)
-    #             print(f"(unanswered)-stran-{i}.html")
-    #     else:
-    #         print("napaka")
+        if odziv.status_code == 200:
+            with open(f"(unanswered)-stran-{i}.html", "w", encoding="utf-8") as f:
+                f.write(odziv.text)
+                print(f"(unanswered)-stran-{i}.html")
+        else:
+            print("napaka")
     
 
     vprasanja = []
@@ -58,8 +57,6 @@ def poberi_htmlje_st_strani(od, do):
                 vprasanje["kategorija"] = type
                 vprasanja.append(vprasanje)
 
-    # with open("vprasanja.json", "w", encoding="utf-8") as f:
-    #     json.dump(vprasanja, f, ensure_ascii=False, indent=4)
     avtorji = {}
     oznake = set()
     oznake_vprasanja = []

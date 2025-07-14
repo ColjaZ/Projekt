@@ -1,11 +1,6 @@
 import re
 
-# with open("(highest-score)-stran-1.html", encoding="utf-8") as f:
-#     vsebina = f.read()
-
 vzorec_bloka = re.compile(r'(?=<div[^>]+id="question-summary-\d+")')
-# bloki = vzorec_bloka.split(vsebina) #splita vse do prvega takega vzorca (bloke se ustvari kasneje i think ko poklicem to funkcijo al neki)
-# bloki = bloki[1:] #znebimo se prvega bloka ki ne predstavlja nobenega vprašanja
 
 vzorec_nesprejeti = re.compile(
     r'<div[^>]+id="question-summary-(?P<id>\d+)"[^>]*>.*?'
