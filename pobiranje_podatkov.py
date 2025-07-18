@@ -29,7 +29,6 @@ def poberi_htmlje(od, do):
                 print(f"(trending)-stran-{i}.html")
         else:
             print("napaka")
-
     
     for i in range(od, do + 1):
         link = f"https://math.stackexchange.com/unanswered/tagged/?page={i}&tab=votes&pagesize=50"
@@ -43,24 +42,11 @@ def poberi_htmlje(od, do):
                 print(f"(unanswered)-stran-{i}.html")
         else:
             print("napaka")
-
-    for i in range(od, do*3 + 1): #toliko newest vprasanj kot je ostalih treh kategorij skupaj (2 grupi podatkov)
-        link = f"https://math.stackexchange.com/questions?tab=newest&page={i}"
-        odziv = requests.get(link)
-
-        time.sleep(4)
-
-        if odziv.status_code == 200:
-            with open(f"Podatki/(newest)-stran-{i}.html", "w", encoding="utf-8") as f:
-                f.write(odziv.text)
-                print(f"(newest)-stran-{i}.html")
-        else:
-            print("napaka")
     return
 
 def shrani_csv(od, do):
     vprasanja = []
-    for type in ["highest-score", "trending","unanswered"]:
+    for type in ["highest-score", "trending", "unanswered"]:
         for i in range(od, do + 1):
             with open(f"Podatki/({type})-stran-{i}.html", encoding="utf-8") as f:
                 vsebina = f.read()
@@ -69,15 +55,6 @@ def shrani_csv(od, do):
             for blok in bloki:
                 vprasanje = izloci_podatke_vprasanja(blok)
                 vprasanje["kategorija"] = type
-                vprasanja.append(vprasanje)
-    for i in range(od, do*3 + 1):
-            with open(f"Podatki/(newest)-stran-{i}.html", encoding="utf-8") as f:
-                vsebina = f.read()
-
-            bloki = vzorec_bloka.split(vsebina)[1:] #splita in odstrani vse pred prvim vprasanjem
-            for blok in bloki:
-                vprasanje = izloci_podatke_vprasanja(blok)
-                vprasanje["kategorija"] = "newest"
                 vprasanja.append(vprasanje)
 
     avtorji = {}

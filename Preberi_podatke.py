@@ -43,8 +43,8 @@ def izloci_podatke_vprasanja(blok):
     vprasanje['id'] = int(vprasanje['id'])
     vprasanje['votes']   = int(vprasanje['votes'])
     vprasanje['answers'] = int(vprasanje['answers'])
-    v = vprasanje['views'].lower().replace(',','')
-    vprasanje['views'] = int(float(v[:-1])*1000) if v.endswith('k') else int(v)
+    views = vprasanje['views'].lower().replace(',','')
+    vprasanje['views'] = int(float(views[:-1])*1000) if views.endswith('k') else int(views)
     vprasanje['tags'] = vzorec_oznaka.findall(blok)
     author = vzorec_avtor.search(blok)
     vprasanje["author"] = author.group("author") if author else None
