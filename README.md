@@ -1,7 +1,7 @@
 # Analiza vprašanj na Math StackExchange
 
 ## Opis  
-Program pobere in obdela seznam vprašanj s spletne strani Math StackExchange, iz treh kategorij:  
+Program pobere in obdela seznam vprašanj s spletne strani Math StackExchange iz treh kategorij:  
 - **highest-score** (najvišje ocenjena vprašanja)  
 - **trending** (trenutno priljubljena vprašanja)  
 - **unanswered** (vprašanja brez sprejetih odgovorov)  
