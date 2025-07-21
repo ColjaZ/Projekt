@@ -27,8 +27,6 @@ vzorec_avtor = re.compile(
     r'(?P<author>[^<]+)</a>'
 )
 
-vzorec_cas = re.compile(r"<span[^>]+class='relativetime'[^>]*>(?P<time>[^<]+)</span>")
-
 vzorec_sprejetodg = re.compile(r'\bhas-accepted-answer\b')
 
 vzorec_ugled = re.compile(
@@ -51,6 +49,4 @@ def izloci_podatke_vprasanja(blok):
     reputation = vzorec_ugled.search(blok)
     vprasanje['reputation'] = int(reputation.group("rep").replace(",", "")) if reputation else None
     vprasanje['has_accepted_answer'] = bool(vzorec_sprejetodg.search(blok))
-    time = vzorec_cas.search(blok)
-    vprasanje["time"] = time.group("time") if time else None
     return vprasanje

@@ -62,7 +62,7 @@ def shrani_csv(od, do):
     oznake_vprasanja = []
     with open("vprasanja.csv", "w", encoding="utf-8") as f:
         pisatelj = csv.writer(f)
-        pisatelj.writerow(["Kategorija", "id", "Naslov", "Ogledi", "Glasovi", "Število odgovorov", "Ima sprejet odgovor", "Avtor", "Čas objave"])
+        pisatelj.writerow(["Kategorija", "id", "Naslov", "Ogledi", "Glasovi", "Število odgovorov", "Ima sprejet odgovor", "Avtor"])
         for vprasanje in vprasanja:
             kategorija = vprasanje["kategorija"]
             id = vprasanje["id"]
@@ -72,8 +72,7 @@ def shrani_csv(od, do):
             answers = vprasanje["answers"]
             accepted_answer = vprasanje["has_accepted_answer"]
             author = vprasanje["author"]
-            cas = vprasanje["time"]
-            pisatelj.writerow([kategorija,id,title,views,votes,answers,accepted_answer,author,cas])
+            pisatelj.writerow([kategorija,id,title,views,votes,answers,accepted_answer,author])
             if vprasanje.get("author") is not None:
                 avtorji[vprasanje["author"]] = vprasanje.get("reputation", 0)
             for oznaka in vprasanje["tags"]:
@@ -85,12 +84,6 @@ def shrani_csv(od, do):
         pisatelj.writerow(["author", "reputation"])
         for author, rep in avtorji.items():
             pisatelj.writerow([author, rep])
-
-    with open("oznake.csv", "w", encoding="utf-8") as f:
-        pisatelj = csv.writer(f)
-        pisatelj.writerow(["oznaka"])
-        for oznaka in oznake:
-            pisatelj.writerow([oznaka])
 
     with open("oznake_vprasanj.csv", "w", encoding="utf-8") as f:
         pisatelj = csv.writer(f)
