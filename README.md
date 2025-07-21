@@ -1,6 +1,6 @@
 # Analiza vprašanj na Math StackExchange
 
-Z analizo poskušamo ugotoviti, kako postaviti najboljše vprašanje na spletni strani
+Z analizo poskušamo ugotoviti, kako postaviti vprašanje z največjo možnostjo uspeha na spletni strani
 Math Stackexchange - analiziramo glavne značilnosti uspešnih vprašanj in jih primerjamo z značilnostmi
 neuspešnih vprašanj.
 
