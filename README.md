@@ -16,5 +16,5 @@ Preberi_podatke.py s pomočjo regularnih izrazov izlušči informacije za vsako 
 pobiranje_podatkov.py shrani HTML-je ter informacije o vprašanjih shrani v csv datoteke.
 # Navodila za uporabo
 - Zaženite datoteko main.py
-- Na vprašanje odgovorite z "da", če želite pobrati sveže podatke. Sicer program analizira že vnaprej pobrane podatke.
+- Na vprašanje odgovorite z "da", če želite pobrati sveže podatke. Sicer program uporabi že vnaprej pobrane podatke.
 - Zaženite datoteko Analiza_MSE.ipynb in začnite analizo
